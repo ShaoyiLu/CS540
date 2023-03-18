@@ -54,7 +54,7 @@ class TeekoPlayer:
 
         move = []
         if not drop_phase:
-            # TODO: choose a piece to move and remove it from the board
+            # choose a piece to move and remove it from the board
             succ_list = self.succ_move(state, self.my_piece)
             alpha = -999999
             beta = 999999
@@ -71,7 +71,7 @@ class TeekoPlayer:
             return move
 
         # select an unoccupied space randomly
-        # TODO: implement a minimax algorithm to play better
+        # implement a minimax algorithm to play better
         succ_list = self.succ(state)
         alpha = -999999
         beta = 999999
@@ -235,7 +235,7 @@ class TeekoPlayer:
                 if state[i][col] != ' ' and state[i][col] == state[i + 1][col] == state[i + 2][col] == state[i + 3][col]:
                     return 1 if state[i][col] == self.my_piece else -1
 
-        # TODO: check \ diagonal wins
+        # check \ diagonal wins
         for col in range(2):
             for i in range(3, 5):
                 if state[i][col] != ' ' and state[i][col] == state[i - 1][col + 1] == state[i - 2][col + 2] == \
@@ -245,7 +245,7 @@ class TeekoPlayer:
                     else:
                         return -1
 
-        # TODO: check / diagonal wins
+        # check / diagonal wins
         for col in range(2):
             for i in range(0, 2):
                 if state[i][col] != ' ' and state[i][col] == state[i + 1][col + 1] == state[i + 2][col + 2] == \
@@ -255,7 +255,7 @@ class TeekoPlayer:
                     else:
                         return -1
 
-        # TODO: check box wins
+        # check box wins
         for col in range(0, 4):
             for i in range(0, 4):
                 if state[i][col] != ' ' and state[i][col] == state[i][col + 1] == state[i + 1][col] == state[i + 1][

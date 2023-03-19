@@ -1,7 +1,6 @@
 import random
 import copy
 
-
 class TeekoPlayer:
     """ An object representation for an AI game player for the game Teeko2.
     """
@@ -128,7 +127,7 @@ class TeekoPlayer:
         if (depth >= 1):
             return self.heuristic_game_value(state, self.opp)
         # self.print_board(state)
-        # TODO: always check drop_phase
+        # always check drop_phase
         if (self.check_drop_phase(state)):
             succ_list = self.succ(state)
             for row, col in succ_list:

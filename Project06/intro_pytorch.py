@@ -5,11 +5,6 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 
-
-# Feel free to import other packages, if needed.
-# As long as they are supported by CSL machines.
-
-
 def get_data_loader(training=True):
     custom_transform = transforms.Compose([
         transforms.ToTensor(),

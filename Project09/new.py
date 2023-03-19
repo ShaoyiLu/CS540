@@ -46,10 +46,10 @@ class TeekoPlayer:
             will earn you no points.
         """
 
-        drop_phase = self.check_drop_phase(state)  # TODO: detect drop phase
+        drop_phase = self.check_drop_phase(state)  # detect drop phase
 
         # select an unoccupied space randomly
-        # TODO: implement a minimax algorithm to play better
+        # implement a minimax algorithm to play better
 
         move = []
         if not drop_phase:
@@ -101,7 +101,7 @@ class TeekoPlayer:
         if (depth >= 1):
             return self.heuristic_game_value(state, self.my_piece)
         # self.print_board(state)
-        # TODO: always check drop_phase
+        # always check drop_phase
         if (self.check_drop_phase(state)):
             succ_list = self.succ(state)
             for row, col in succ_list:
@@ -229,7 +229,8 @@ class TeekoPlayer:
             for cell in self.board[row]:
                 line += cell + " "
             print(line)
-        print("   A B C D E")'''
+        print("   A B C D E")
+    '''
 
     def print_board(self):
         """ Formatted printing for the board """
@@ -247,7 +248,6 @@ class TeekoPlayer:
             this Teeko2Player object, or a generated successor state.
         Returns:
             int: 1 if this Teeko2Player wins, -1 if the opponent wins, 0 if no winner
-        TODO: complete checks for diagonal and diamond wins
         """
         # check horizontal wins
         for row in state:
@@ -263,20 +263,20 @@ class TeekoPlayer:
                     col]:
                     return 1 if state[i][col] == self.my_piece else -1
 
-        # TODO: check \ diagonal wins
+        # check \ diagonal wins
         for row in range(2):
             for col in range(2):
                 if state[row][col] != ' ' and state[row][col] == state[row + 1][col + 1] == state[row + 2][col + 2] == \
                         state[row + 3][col + 3]:
                     return 1 if state[row][col] == self.my_piece else -1
 
-        # TODO: check / diagonal wins
+        # check / diagonal wins
         for row in range(2):
             for col in range(3, 5):
                 if state[row][col] != ' ' and state[row][col] == state[row + 1][col - 1] == state[row + 2][col - 2] == \
                         state[row + 3][col - 3]:
                     return 1 if state[row][col] == self.my_piece else -1
-        # TODO: check diamond wins
+        # check diamond wins
         for row in range(1, 4):
             for col in range(1, 4):
                 if state[row][col] == ' ' and state[row + 1][col] != ' ' and state[row + 1][col] == state[row - 1][
@@ -285,7 +285,7 @@ class TeekoPlayer:
         return 0  # no winner yet
 
     def heuristic_game_value(self, state, piece):
-        # TODO: generate heauristic
+        # generate heauristic
         val = self.game_value(state)
         if (val != 0):
             return val
